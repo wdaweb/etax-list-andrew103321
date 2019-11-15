@@ -79,22 +79,22 @@ if(!empty( $_GET['id'])){
           <td colspan=2><?=$row['year']?>年</td>
         </tr>
         <tr>
-          <td colspan=2>期別<?=$row['period']?></td>
+          <td colspan=2>期別&ensp;<?=$row['period']?></td>
         </tr>
         <tr>
-          <td>特別獎<?=$row['prize_1']?></td>
+          <td>特別獎&ensp;&ensp;<?=$row['prize_1']?></td>
           <td>1000萬</td>
         </tr>
         <tr>
-            <td>特獎<?=$row['prize_2']?></td>
+            <td>特獎&emsp;&emsp;<?=$row['prize_2']?></td>
             <td>200萬</td>
         </tr>
         <tr>
           
             <td>頭獎<br>
-                <?=$row['prize_3']?><br>
-                <?=$row['prize_4']?><br>
-                <?=$row['prize_5']?><br>
+            &emsp;&emsp; &emsp; <?=$row['prize_3']?><br>
+            &emsp;&emsp; &emsp; <?=$row['prize_4']?><br>
+            &emsp;&emsp; &emsp; <?=$row['prize_5']?><br>
             </td>
            <td>20萬</td>
         </tr>
@@ -116,8 +116,8 @@ if(!empty( $_GET['id'])){
         </tr>
         <tr>
             <td>
-            <?=$row['prize_6']?> <br>
-            <?=$row['prize_7']?> <br>
+            &emsp;&emsp; &emsp;<?=$row['prize_6']?> <br>
+            &emsp;&emsp; &emsp;<?=$row['prize_7']?> <br>
             六獎   頭獎中獎與六獎號碼末3 位相同者各得獎金</td>
             <td>2百元</td>
         </tr>
