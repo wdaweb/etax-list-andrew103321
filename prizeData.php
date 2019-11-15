@@ -146,71 +146,73 @@ if(!empty( $_GET['id'])){
 
   
             
-      
+        $a =0 ;
          foreach ($row_1 as $user_1){ 
-  
+           
     
             if(substr($user_1['number'],2,8)==substr($com1[0],0,8)){
                 echo "1000萬".'--';
                 echo $user_1['number'];
-                    echo "<br>";
-            
+                echo "<br>";
+                $a = $a + 10000000;
             }else if(substr($user_1['number'],2,8)==substr($com1[1],0,8)){
                     echo "200萬".'--';
                     echo $user_1['number'];
                     echo "<br>";
+                    $a = $a + 2000000;
             }else if(substr($user_1['number'],2,8)==substr($com1[2],0,8)||substr($user_1['number'],2,8)==substr($com1[3],0,8)||substr($user_1['number'],2,8)==substr($com1[4],0,8)){
                     echo "20萬".'--';
                     echo $user_1['number'];
                     echo "<br>";
-            
+                    $a = $a + 200000;
             }else if(substr($user_1['number'],3,7)==substr($com1[2],1,7) ||substr($user_1['number'],3,7)==substr($com1[3],1,7)||substr($user_1['number'],3,7)==substr($com1[4],1,7)){
               
                 echo "4萬".'--';
                 echo $user_1['number'];
                 echo "<br>";
-             
-                
+                $a = $a + 40000;
             }else if(substr($user_1['number'],4,6)==substr($com1[2],2,6)||substr($user_1['number'],4,6)==substr($com1[3],2,6)||substr($user_1['number'],4,6)==substr($com1[4],2,6)){
-                
+
                 echo "1萬".'--';
                 echo $user_1['number'];
                  echo "<br>";
-            
+                 $a = $a + 10000;
             }else if(substr($user_1['number'],5,5)==substr($com1[2],3,5)||substr($user_1['number'],5,5)==substr($com1[3],3,5)||substr($user_1['number'],5,5)==substr($com1[4],3,5)){
               
                 echo "4千".'--';
                 echo $user_1['number'];
                 echo "<br>";
-              
+                $a = $a + 4000;
             }else if(substr($user_1['number'],6,4)==substr($com1[2],4,4)||substr($user_1['number'],6,4)==substr($com1[3],4,4)||substr($user_1['number'],6,4)==substr($com1[4],4,4)){
                 
                 echo "1千".'--'; 
                 echo $user_1['number'];
                 echo "<br>"  ; 
-            
+                $a = $a + 1000;
             }else if(substr($user_1['number'],7,3)==substr($com1[2],5,3)||substr($user_1['number'],7,3)==substr($com1[3],5,3)||substr($user_1['number'],7,3)==substr($com1[4],5,3)){
             
                 echo "200元".'--';    
                 echo $user_1['number'];
                 echo "<br>";
-            
+                $a = $a + 200;
             }else if (substr($user_1['number'],7,3)==$com1[5]){
                 
                 echo "200元".'--';
                 echo $user_1['number'];
                 echo "<br>";
-              
+                $a = $a + 200;
             }else if (substr($user_1['number'],7,3)==$com1[6]){
                 
                 echo "200元";
                 echo $user_1['number'];
                 echo "<br>";
+                $a = $a + 200;
             }
                   
     
     }
-}
+         echo "總金額".$a."元";
+    }
     ?> 
     </div>
     </div>  
