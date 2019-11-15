@@ -61,43 +61,40 @@
 <?php
 if(!empty( $_GET['id'])){
   $period = $_GET['id'];
-
   $dsn = "mysql:host=localhost;charset=utf8;dbname=mydb";
   $pdo = new pdo($dsn,'root','');
   
   // 獎號資料庫
   $sql = "SELECT * FROM `prize` WHERE `period` ='$period'";
-
   //   echo $sql; 
-  $row= $pdo->query($sql)->fetchAll();
+  $row= $pdo->query($sql)->fetch();
 
-   //   print_r($row);
     ?>
     <div id='div1'>
    <?php
-    foreach ($row as $user){
+  
     ?>   
     <table border="1" id='tb2'>
         <tr>
-          <td colspan=2><?=$user['year']?>年</td>
+          <td colspan=2><?=$row['year']?>年</td>
         </tr>
         <tr>
-          <td colspan=2>期別<?=$user['period']?></td>
+          <td colspan=2>期別<?=$row['period']?></td>
         </tr>
         <tr>
-          <td>特別獎<?=$user['prize_1']?></td>
+          <td>特別獎<?=$row['prize_1']?></td>
           <td>1000萬</td>
         </tr>
         <tr>
-            <td>特獎<?=$user['prize_2']?></td>
+            <td>特獎<?=$row['prize_2']?></td>
             <td>200萬</td>
         </tr>
         <tr>
           
             <td>頭獎<br>
-                <?=$user['prize_3']?><br>
-                <?=$user['prize_4']?><br>
-                <?=$user['prize_5']?><br>
+                <?=$row['prize_3']?><br>
+                <?=$row['prize_4']?><br>
+                <?=$row['prize_5']?><br>
             </td>
            <td>20萬</td>
         </tr>
@@ -119,8 +116,8 @@ if(!empty( $_GET['id'])){
         </tr>
         <tr>
             <td>
-            <?=$user['prize_6']?> <br>
-            <?=$user['prize_7']?> <br>
+            <?=$row['prize_6']?> <br>
+            <?=$row['prize_7']?> <br>
             六獎   頭獎中獎與六獎號碼末3 位相同者各得獎金</td>
             <td>2百元</td>
         </tr>
@@ -130,31 +127,28 @@ if(!empty( $_GET['id'])){
         </tr>
     </table>
    
-    <?php   
-    }       
-    }
-    ?>
+   
     <div id='div2'>
     <?php
 
-        if(!empty($user) && !empty($_GET['s'])){
-            $com1= [$user['prize_1'],$user['prize_2'],$user['prize_3'],$user['prize_4']
-            ,$user['prize_5'],$user['prize_6'],$user['prize_7']];
+        if(!empty($row) && !empty($_GET['s'])){
+            $com1= [$row['prize_1'],$row['prize_2'],$row['prize_3'],$row['prize_4']
+            ,$row['prize_5'],$row['prize_6'],$row['prize_7']];
         }else{
             exit;
         }
-
         //發票資料庫
         $sql = "SELECT  `number`
-        from `user`,`day` where `day`.`id`=`user`.`period` && `user`.`period` ='4' ";
-        // echo $sql_1;
+        from `user`,`day` where `day`.`id`=`user`.`period` && `user`.`period` ='$period' ";
+    
         $row_1= $pdo->query($sql)->fetchAll();
-        // print_r($row_1) ;
-        
+  
+
+  
             
       
          foreach ($row_1 as $user_1){ 
-            
+  
     
             if(substr($user_1['number'],2,8)==substr($com1[0],0,8)){
                 echo "1000萬".'--';
@@ -216,16 +210,11 @@ if(!empty( $_GET['id'])){
                   
     
     }
-    
+}
     ?> 
     </div>
     </div>  
-    <script>
-        function money()
-    
-    
-    
-    </script>
+  
 </body>
 </html>
 </body>
