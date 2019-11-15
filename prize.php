@@ -7,11 +7,13 @@
     <title>Document</title>
     <style>
         body{
+          overflow:hidden;
           margin: 0;
           padding: 0;
           box-sizing: border-box;  
-          background: linear-gradient(to right, #00416a, #e4e5e6); 
-          
+          background: linear-gradient(to top, #00416a, #e4e5e6 ); 
+          height:100vh;
+          font-family: "微軟正黑體";
         }
         #div1{
             position: relative;
@@ -21,7 +23,7 @@
             width: 700px;
             margin:0 auto;
             border-radius: 5%;
-            box-shadow: 1px 1px 10px 15px black;
+            box-shadow: 0px 0px 20px  rgba(0,0,0,0.5);
         
         }
         #tb1{
